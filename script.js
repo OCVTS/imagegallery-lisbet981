@@ -36,3 +36,14 @@ document.getElementById('prev').addEventListener('click', () => {
 });
 
 //kewyboard navigation for theh lightbox
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    } else if (event.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    } else if (event.key === 'Escape') {
+        lightbox.classList.remove('visible');
+    }
+})
